@@ -6,11 +6,14 @@ import { RegisterComponent } from "./auth/register/register.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 
 import { dashboardRouter } from "./dashboard/dashboard.router";
+import { AuthGuard } from "./service/auth.guard";
 
 const router: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: '', component: DashboardComponent, children: dashboardRouter},
+  {path: '', component: DashboardComponent,
+   children: dashboardRouter,
+  canActivate: [AuthGuard]},
   {path: '**', redirectTo: ''}
 ]
 
