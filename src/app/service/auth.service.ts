@@ -11,6 +11,7 @@ import {
 import { Store } from '@ngrx/store';
 import { AppState } from '../app-reducer';
 import { setUser, unSetUser } from '../auth/auth-actions';
+import { getEntrataSaida } from '../entrada-saida/entrada-saida.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,11 @@ import { setUser, unSetUser } from '../auth/auth-actions';
 export class AuthService {
 
   userSubscription!: Subscription
+  private _user!: Usuario;
+
+  get usuario(){
+    return this._user;
+  }
 
   constructor(
     private auth: AngularFireAuth,
@@ -34,10 +40,12 @@ export class AuthService {
         .subscribe((usuario:any) => {
           if(usuario){
             const user =  Usuario.fronFireBase(usuario)
+            this._user = user;
             this.store.dispatch(setUser({usuario}))
           }else{
             this.store.dispatch(unSetUser())
             this.userSubscription.unsubscribe();
+            this.store.dispatch(getEntrataSaida())
           }
         });
     });

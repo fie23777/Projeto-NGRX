@@ -1,11 +1,11 @@
 import { Routes } from "@angular/router";
-import { DetailComponent } from "../input-output/detail/detail.component";
-import { InputOutputComponent } from "../input-output/input-output.component";
-import { StatisticComponent } from "../input-output/statistic/statistic.component";
+import { DetailComponent } from "../entrada-saida/detail/detail.component";
+import { EntradaSaidaComponent } from "../entrada-saida/entrada-saida.component";
+import { StatisticComponent } from "../entrada-saida/statistic/statistic.component";
 
 
 export const dashboardRouter: Routes = [
   {path: '', component: StatisticComponent},
-  {path: 'input-output', component: InputOutputComponent},
+  {path: 'entrada-saida', component: EntradaSaidaComponent},
   {path: 'detail', component: DetailComponent},
 ]

@@ -16,9 +16,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { InputOutputComponent } from './input-output/input-output.component';
-import { StatisticComponent } from './input-output/statistic/statistic.component';
-import { DetailComponent } from './input-output/detail/detail.component';
+import { EntradaSaidaComponent } from './entrada-saida/entrada-saida.component';
+import { StatisticComponent } from './entrada-saida/statistic/statistic.component';
+import { DetailComponent } from './entrada-saida/detail/detail.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidbarComponent } from './shared/sidbar/sidbar.component';
@@ -26,8 +26,8 @@ import { SidbarComponent } from './shared/sidbar/sidbar.component';
 import { StoreModule } from '@ngrx/store';
 
 import { appReducer } from './app-reducer';
-
-
+import { EntradaSaidaPipesPipe } from './pipes/entrada-saida-pipes.pipe';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -36,12 +36,13 @@ import { appReducer } from './app-reducer';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    InputOutputComponent,
+    EntradaSaidaComponent,
     StatisticComponent,
     DetailComponent,
     FooterComponent,
     NavbarComponent,
     SidbarComponent,
+    EntradaSaidaPipesPipe,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +57,7 @@ import { appReducer } from './app-reducer';
       logOnly: environment.production, // Restrict extension to log-only mode
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

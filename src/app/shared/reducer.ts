@@ -2,18 +2,18 @@ import { Action, createReducer, on } from '@ngrx/store';
 import { isLoading, stopLoading } from './actions'
 
 export interface Estado{
-   loading: boolean;
+   isLoading: boolean;
 }
 
 export const initialState: Estado = {
-    loading: false
+  isLoading: false
 };
 
  const _statusReducer = createReducer(
   initialState,
 
-  on(isLoading, state => ({...state, loading: true})),
-  on(stopLoading, state => ({...state, loading: false})),
+  on(isLoading, state => ({...state, isLoading: true})),
+  on(stopLoading, state => ({...state, isLoading: false})),
 
 );
 

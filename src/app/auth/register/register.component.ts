@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
       password: ['', Validators.required],
     })
     this.store.select('loading').subscribe(loading => {
-      this.loading = loading.loading
+      this.loading = loading.isLoading;
     })
   }
 

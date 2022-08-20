@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
 
     this.loadingSubscription = this.store.select('loading').subscribe(loading => {
-      this.loading = loading.loading,
+      this.loading = loading.isLoading,
       console.log('Carregando subs')
     })
   }
