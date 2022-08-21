@@ -19,7 +19,7 @@ import { BrowserModule } from '@angular/platform-browser';
     BrowserModule,
     ReactiveFormsModule,
     CommonModule,
-    RouterModule
+    RouterModule,
   ]
 })
 export class AuthModuleModule { }
