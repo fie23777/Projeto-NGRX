@@ -13,8 +13,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EntradaSaidaComponent } from './entrada-saida/entrada-saida.component';
 import { StatisticComponent } from './entrada-saida/statistic/statistic.component';
@@ -28,26 +26,26 @@ import { StoreModule } from '@ngrx/store';
 import { appReducer } from './app-reducer';
 import { EntradaSaidaPipesPipe } from './pipes/entrada-saida-pipes.pipe';
 import { NgChartsModule } from 'ng2-charts';
+import { AuthModuleModule } from './auth/auth-module.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
+
     DashboardComponent,
     EntradaSaidaComponent,
     StatisticComponent,
     DetailComponent,
-    FooterComponent,
-    NavbarComponent,
-    SidbarComponent,
     EntradaSaidaPipesPipe,
   ],
   imports: [
     BrowserModule,
     AppRouterModule,
     ReactiveFormsModule,
+    AuthModuleModule,
+    SharedModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
